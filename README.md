@@ -14,7 +14,11 @@ A desktop app that takes your set and relation, analyzes its properties, and dra
 
 ---
 ## 📸 Screenshots
-![screen1](screenshots/screen1.png)
+![screen1](screen1.png)
+![screen2](screen2.png)
+![screen3](screen3.png)
+![screen5](screen4.png)
+![screen4](screen5.png)
 
 ## 🛠️ Tech Stack
 
