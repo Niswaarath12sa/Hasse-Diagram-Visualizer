@@ -13,6 +13,8 @@ A desktop app that takes your set and relation, analyzes its properties, and dra
 - **Step-by-Step Flow** — Walks you through each stage with a visual progress bar so nothing feels like a black box
 
 ---
+## 📸 Screenshots
+![screen1](screenshots/screen1.png)
 
 ## 🛠️ Tech Stack
 
