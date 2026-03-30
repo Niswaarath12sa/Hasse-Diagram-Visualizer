@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<ScrollPane fitToWidth="true" styleClass="module-scroll" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.dmvisualizer.controller.GroupController">
+    <VBox spacing="24" styleClass="module-container">
+        <padding><Insets top="32" right="32" bottom="32" left="32"/></padding>
+
+        <VBox spacing="6">
+            <Label text="Group Theory — Cayley Table" styleClass="module-title"/>
+            <Label text="Generate a Cayley table and verify group axioms: closure, identity, inverse, associativity." styleClass="module-subtitle"/>
+        </VBox>
+
+        <HBox spacing="20">
+            <!-- Controls -->
+            <VBox spacing="16" styleClass="card" minWidth="300">
+                <Label text="Configuration" styleClass="card-title"/>
+                <VBox spacing="8">
+                    <Label text="Set elements (comma-separated)" styleClass="field-label"/>
+                    <TextField fx:id="setField" promptText="e.g. 0,1,2" styleClass="dm-field"/>
+                </VBox>
+                <VBox spacing="8">
+                    <Label text="Operation" styleClass="field-label"/>
+                    <ComboBox fx:id="opCombo" styleClass="dm-field" maxWidth="Infinity"
+                              promptText="Select operation"/>
+                </VBox>
+                <HBox spacing="12">
+                    <Button text="Generate Table" onAction="#generateTable" styleClass="btn-primary"/>
+                    <Button text="Try Example" onAction="#tryExample" styleClass="btn-example"/>
+                </HBox>
+                <HBox spacing="12">
+                    <Button text="Check Group" onAction="#checkGroup" styleClass="btn-secondary"/>
+                    <Button text="Abelian?" onAction="#checkAbelian" styleClass="btn-secondary"/>
+                </HBox>
+                <TextArea fx:id="resultArea" editable="false" prefHeight="180" wrapText="true"
+                          styleClass="output-area" promptText="Group properties will appear here..."/>
+            </VBox>
+
+            <!-- Table -->
+            <VBox spacing="8" styleClass="card" HBox.hgrow="ALWAYS">
+                <Label text="Cayley Table" styleClass="card-title"/>
+                <TableView fx:id="cayleyTable" VBox.vgrow="ALWAYS" styleClass="dm-table"/>
+            </VBox>
+        </HBox>
+    </VBox>
+</ScrollPane>

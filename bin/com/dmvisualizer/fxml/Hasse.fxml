@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.*?>
+
+<ScrollPane fitToWidth="true" styleClass="module-scroll" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.dmvisualizer.controller.HasseController">
+    <VBox spacing="24" styleClass="module-container">
+        <padding><Insets top="32" right="32" bottom="32" left="32"/></padding>
+
+        <VBox spacing="6">
+            <Label text="Hasse Diagram" styleClass="module-title"/>
+            <Label text="Generate a Hasse diagram for a partial order relation by removing transitive edges." styleClass="module-subtitle"/>
+        </VBox>
+
+        <HBox spacing="20">
+            <!-- Inputs -->
+            <VBox spacing="16" styleClass="card" minWidth="320">
+                <Label text="Input" styleClass="card-title"/>
+                <VBox spacing="8">
+                    <Label text="Set elements (comma-separated)" styleClass="field-label"/>
+                    <TextField fx:id="setField" promptText="e.g. 1,2,3,6" styleClass="dm-field"/>
+                </VBox>
+                <VBox spacing="8">
+                    <Label text="Relations (pairs: a,b each line or semicolon)" styleClass="field-label"/>
+                    <TextArea fx:id="relField" promptText="e.g. 1,2;2,6;1,3;3,6" prefHeight="100"
+                              styleClass="dm-field" wrapText="true"/>
+                </VBox>
+                <HBox spacing="12">
+                    <Button text="Generate" onAction="#generateHasse" styleClass="btn-primary"/>
+                    <Button text="Try Example" onAction="#tryExample" styleClass="btn-example"/>
+                    <Button text="Clear" onAction="#clearAll" styleClass="btn-secondary"/>
+                </HBox>
+                <TextArea fx:id="infoArea" editable="false" prefHeight="80" wrapText="true"
+                          styleClass="output-area" promptText="Info will appear here..."/>
+            </VBox>
+
+            <!-- Canvas -->
+            <VBox spacing="8" styleClass="card" HBox.hgrow="ALWAYS">
+                <Label text="Hasse Diagram" styleClass="card-title"/>
+                <Pane fx:id="canvasPane" minHeight="400" style="-fx-background-color: #f8fafc; -fx-border-color: #e2e8f0; -fx-border-radius: 8;"/>
+            </VBox>
+        </HBox>
+
+        <HBox spacing="16">
+            <VBox styleClass="info-card" HBox.hgrow="ALWAYS" spacing="8">
+                <Label text="What is a Hasse Diagram?" styleClass="op-symbol" style="-fx-font-size:14px;"/>
+                <Label text="A simplified diagram of a partial order. Transitive and reflexive edges are removed. Higher elements appear above lower ones." styleClass="op-desc" wrapText="true"/>
+            </VBox>
+            <VBox styleClass="info-card" HBox.hgrow="ALWAYS" spacing="8">
+                <Label text="Algorithm" styleClass="op-symbol" style="-fx-font-size:14px;"/>
+                <Label text="1. Remove reflexive edges (a,a)\n2. Remove transitive edges (a,c) when path a→b→c exists\n3. Arrange by level/rank" styleClass="op-desc" wrapText="true"/>
+            </VBox>
+        </HBox>
+    </VBox>
+</ScrollPane>

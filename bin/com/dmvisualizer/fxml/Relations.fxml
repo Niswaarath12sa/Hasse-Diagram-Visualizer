@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<ScrollPane fitToWidth="true" styleClass="module-scroll" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.dmvisualizer.controller.RelationsController">
+    <VBox spacing="24" styleClass="module-container">
+        <padding><Insets top="32" right="32" bottom="32" left="32"/></padding>
+
+        <VBox spacing="6">
+            <Label text="Relation Checker" styleClass="module-title"/>
+            <Label text="Enter a relation matrix and check its properties: Reflexive, Symmetric, Transitive." styleClass="module-subtitle"/>
+        </VBox>
+
+        <HBox spacing="20">
+            <!-- Matrix Input -->
+            <VBox spacing="16" styleClass="card" minWidth="340">
+                <Label text="Relation Matrix (n×n)" styleClass="card-title"/>
+                <HBox spacing="8" alignment="CENTER_LEFT">
+                    <Label text="Size n =" styleClass="field-label"/>
+                    <Spinner fx:id="sizeSpinner" min="2" max="6" initialValue="3"
+                             editable="true" prefWidth="80" styleClass="dm-spinner"/>
+                    <Button text="Resize" onAction="#resizeMatrix" styleClass="btn-secondary"/>
+                </HBox>
+                <Label text="Enter 0 or 1 in each cell:" styleClass="field-label"/>
+                <GridPane fx:id="matrixGrid" hgap="6" vgap="6"/>
+                <HBox spacing="12">
+                    <Button text="Try Example" onAction="#tryExample" styleClass="btn-example"/>
+                    <Button text="Clear" onAction="#clearMatrix" styleClass="btn-secondary"/>
+                </HBox>
+            </VBox>
+
+            <!-- Checks -->
+            <VBox spacing="16" styleClass="card" HBox.hgrow="ALWAYS">
+                <Label text="Property Checks" styleClass="card-title"/>
+                <HBox spacing="12" wrap="true">
+                    <Button text="Check Reflexive" onAction="#checkReflexive" styleClass="btn-primary"/>
+                    <Button text="Check Symmetric" onAction="#checkSymmetric" styleClass="btn-primary"/>
+                    <Button text="Check Transitive" onAction="#checkTransitive" styleClass="btn-primary"/>
+                    <Button text="Check All" onAction="#checkAll" styleClass="btn-accent"/>
+                </HBox>
+                <Label text="Results" styleClass="field-label"/>
+                <TextArea fx:id="outputArea" editable="false" prefHeight="240" wrapText="true"
+                          styleClass="output-area" promptText="Click a check button to see results..."/>
+            </VBox>
+        </HBox>
+
+        <!-- Theory Cards -->
+        <HBox spacing="16">
+            <VBox styleClass="info-card" HBox.hgrow="ALWAYS" spacing="8">
+                <Label text="Reflexive" styleClass="op-symbol" style="-fx-font-size:16px;"/>
+                <Label text="(a,a) ∈ R for all a in set. Diagonal is all 1s." styleClass="op-desc" wrapText="true"/>
+            </VBox>
+            <VBox styleClass="info-card" HBox.hgrow="ALWAYS" spacing="8">
+                <Label text="Symmetric" styleClass="op-symbol" style="-fx-font-size:16px;"/>
+                <Label text="If (a,b) ∈ R then (b,a) ∈ R. Matrix equals its transpose." styleClass="op-desc" wrapText="true"/>
+            </VBox>
+            <VBox styleClass="info-card" HBox.hgrow="ALWAYS" spacing="8">
+                <Label text="Transitive" styleClass="op-symbol" style="-fx-font-size:16px;"/>
+                <Label text="If (a,b) ∈ R and (b,c) ∈ R then (a,c) ∈ R." styleClass="op-desc" wrapText="true"/>
+            </VBox>
+        </HBox>
+    </VBox>
+</ScrollPane>

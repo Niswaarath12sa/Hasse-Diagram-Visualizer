@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+
+<ScrollPane fitToWidth="true" styleClass="module-scroll" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.dmvisualizer.controller.SetTheoryController">
+    <VBox spacing="24" styleClass="module-container">
+        <padding><Insets top="32" right="32" bottom="32" left="32"/></padding>
+
+        <!-- Header -->
+        <VBox spacing="6">
+            <Label text="Set Theory" styleClass="module-title"/>
+            <Label text="Perform union, intersection, difference, and disjointness checks on sets." styleClass="module-subtitle"/>
+        </VBox>
+
+        <!-- Input Card -->
+        <HBox spacing="20">
+            <VBox spacing="16" styleClass="card" HBox.hgrow="ALWAYS">
+                <Label text="Input Sets" styleClass="card-title"/>
+                <HBox spacing="16">
+                    <VBox spacing="8" HBox.hgrow="ALWAYS">
+                        <Label text="Set A" styleClass="field-label"/>
+                        <TextField fx:id="setAField" promptText="e.g. 1,2,3,4" styleClass="dm-field"/>
+                    </VBox>
+                    <VBox spacing="8" HBox.hgrow="ALWAYS">
+                        <Label text="Set B" styleClass="field-label"/>
+                        <TextField fx:id="setBField" promptText="e.g. 3,4,5,6" styleClass="dm-field"/>
+                    </VBox>
+                </HBox>
+                <HBox spacing="12">
+                    <Button text="Union  A∪B" onAction="#computeUnion" styleClass="btn-primary"/>
+                    <Button text="Intersection  A∩B" onAction="#computeIntersection" styleClass="btn-secondary"/>
+                    <Button text="Difference  A−B" onAction="#computeDifference" styleClass="btn-secondary"/>
+                    <Button text="Disjoint?" onAction="#checkDisjoint" styleClass="btn-secondary"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button text="Try Example" onAction="#tryExample" styleClass="btn-example"/>
+                </HBox>
+            </VBox>
+        </HBox>
+
+        <!-- Output Card -->
+        <VBox spacing="12" styleClass="card">
+            <Label text="Result" styleClass="card-title"/>
+            <TextArea fx:id="outputArea" editable="false" prefHeight="160" wrapText="true"
+                      styleClass="output-area" promptText="Results will appear here..."/>
+        </VBox>
+
+        <!-- Info Card -->
+        <HBox spacing="16">
+            <VBox styleClass="info-card" HBox.hgrow="ALWAYS" spacing="8">
+                <Label text="A∪B" styleClass="op-symbol"/>
+                <Label text="Union — all elements in A or B" styleClass="op-desc" wrapText="true"/>
+            </VBox>
+            <VBox styleClass="info-card" HBox.hgrow="ALWAYS" spacing="8">
+                <Label text="A∩B" styleClass="op-symbol"/>
+                <Label text="Intersection — elements in both A and B" styleClass="op-desc" wrapText="true"/>
+            </VBox>
+            <VBox styleClass="info-card" HBox.hgrow="ALWAYS" spacing="8">
+                <Label text="A−B" styleClass="op-symbol"/>
+                <Label text="Difference — elements in A but not B" styleClass="op-desc" wrapText="true"/>
+            </VBox>
+            <VBox styleClass="info-card" HBox.hgrow="ALWAYS" spacing="8">
+                <Label text="A∩B=∅" styleClass="op-symbol"/>
+                <Label text="Disjoint — A and B share no elements" styleClass="op-desc" wrapText="true"/>
+            </VBox>
+        </HBox>
+    </VBox>
+</ScrollPane>

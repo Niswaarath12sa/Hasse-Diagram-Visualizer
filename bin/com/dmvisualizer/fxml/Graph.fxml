@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<ScrollPane fitToWidth="true" styleClass="module-scroll" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.dmvisualizer.controller.GraphController">
+    <VBox spacing="24" styleClass="module-container">
+        <padding><Insets top="32" right="32" bottom="32" left="32"/></padding>
+
+        <VBox spacing="6">
+            <Label text="Graph Algorithms" styleClass="module-title"/>
+            <Label text="Build a graph and run BFS, DFS, Topological Sort, or Prim's MST." styleClass="module-subtitle"/>
+        </VBox>
+
+        <HBox spacing="20">
+            <!-- Input -->
+            <VBox spacing="16" styleClass="card" minWidth="300">
+                <Label text="Graph Input" styleClass="card-title"/>
+                <VBox spacing="8">
+                    <Label text="Nodes (comma-separated)" styleClass="field-label"/>
+                    <TextField fx:id="nodesField" promptText="e.g. A,B,C,D" styleClass="dm-field"/>
+                </VBox>
+                <VBox spacing="8">
+                    <Label text="Edges (format: A-B or A-B:weight)" styleClass="field-label"/>
+                    <TextArea fx:id="edgesField" promptText="e.g. A-B,A-C,B-D,C-D" prefHeight="80"
+                              styleClass="dm-field" wrapText="true"/>
+                </VBox>
+                <VBox spacing="8">
+                    <Label text="Start Node" styleClass="field-label"/>
+                    <TextField fx:id="startNode" promptText="e.g. A" styleClass="dm-field"/>
+                </VBox>
+                <HBox spacing="8" wrap="true">
+                    <Button text="BFS" onAction="#runBFS" styleClass="btn-primary"/>
+                    <Button text="DFS" onAction="#runDFS" styleClass="btn-primary"/>
+                    <Button text="Topo Sort" onAction="#runTopo" styleClass="btn-secondary"/>
+                    <Button text="Prim's MST" onAction="#runPrims" styleClass="btn-secondary"/>
+                </HBox>
+                <HBox spacing="8">
+                    <Button text="Try Example" onAction="#tryExample" styleClass="btn-example"/>
+                    <Button text="Draw Graph" onAction="#drawGraph" styleClass="btn-accent"/>
+                </HBox>
+            </VBox>
+
+            <!-- Canvas + Output -->
+            <VBox spacing="16" HBox.hgrow="ALWAYS">
+                <VBox spacing="8" styleClass="card" VBox.vgrow="ALWAYS">
+                    <Label text="Graph Visualization" styleClass="card-title"/>
+                    <Pane fx:id="graphPane" minHeight="300" style="-fx-background-color: #f8fafc; -fx-border-color: #e2e8f0; -fx-border-radius: 8;"/>
+                </VBox>
+                <VBox spacing="8" styleClass="card">
+                    <Label text="Algorithm Output" styleClass="card-title"/>
+                    <TextArea fx:id="outputArea" editable="false" prefHeight="140" wrapText="true"
+                              styleClass="output-area"/>
+                </VBox>
+            </VBox>
+        </HBox>
+    </VBox>
+</ScrollPane>
