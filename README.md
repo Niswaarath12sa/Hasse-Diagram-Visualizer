@@ -1,4 +1,4 @@
-# 📊 Hasse Diagram Visualizer
+ # 📊 Hasse Diagram Visualizer
 
 ### *Making Discrete Mathematics actually make sense.*
 
