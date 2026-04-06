@@ -2,6 +2,8 @@
 
 ### *Making Discrete Mathematics actually make sense.*
 
+
+
 A desktop app that takes your set and relation, analyzes its properties, and draws you a clean Hasse Diagram — all in a few clicks.
 
 
